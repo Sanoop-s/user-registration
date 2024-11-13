@@ -10,7 +10,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('user-registration'),
     routes
 });
 
