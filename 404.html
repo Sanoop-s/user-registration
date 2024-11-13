@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='/'" />
+  </head>
+  <body>
+    <script>
+      const pathname = window.location.pathname;
+      if (pathname && pathname !== "/") {
+        window.location.href = window.location.origin + "/" + "#" + pathname;
+      }
+    </script>
+  </body>
+</html>
