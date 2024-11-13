@@ -1,6 +1,6 @@
 {
   "name": "user-registration",
-   "homepage":"https://github.com/Sanoop-s/user-registration"
+   "homepage":"https://github.com/Sanoop-s/user-registration",
   "private": true,
   "version": "0.0.0",
   "type": "module",
