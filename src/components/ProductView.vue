@@ -95,6 +95,8 @@ const onRouteBack = () => {
 
 <style scoped>
 .badge {
+    background-color: #273cb0;
+
     color: #fff;
     font-size: 12px;
     padding: 2px 10px;
