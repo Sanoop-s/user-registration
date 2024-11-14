@@ -4,6 +4,7 @@ import App from './App.vue';
 import { router } from './routes';
 import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
+import VTooltip from 'v-tooltip'
 
 const app = createApp(App);
 const options = {
@@ -11,5 +12,6 @@ const options = {
 }
 app.use(router);
 app.use(ToastPlugin, options);
+app.use(VTooltip);
 app.mount('#app');
 
