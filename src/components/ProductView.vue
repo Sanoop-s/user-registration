@@ -12,11 +12,8 @@ const getProductById = async () => {
     const decId = window.atob(id.value)
     try {
         const response = await getRequest(`products/${decId}`);
-        console.log(response);
         product.value = response.data
-
     } catch {
-
     }
 }
 
@@ -36,59 +33,65 @@ const onRouteBack = () => {
     <div style="text-align: left;" v-if="product">
         <div style="display: flex;justify-content: space-between;padding:10px 20px;align-items: center;">
             <span class="fw-700 f-20 mb-0 ">Product details</span>
-            <button style="width: auto;font-size: 14px" @click="onRouteBack"><i class="fa fa-arrow-left"></i>
+            <button class="btn-primary" style="width: auto;font-size: 14px" @click="onRouteBack"><i
+                    class="fa fa-arrow-left"></i>
                 Back</button>
 
         </div>
-        <div class="card cont" style="padding: 20px;border: 1px solid #ddd;">
-            <div>
-                <div class="img-div-large">
-                    <img :src="product.thumbnail" alt="">
-                </div>
-                <div>
-                    <div class="mt-2 detail-box">
-                        <p class="f-14 mb-0 mt-0">Discount:
-                            <span class="fw-600">{{ product.discountPercentage }}%</span>
-                        </p>
-                        <p class="f-14 mb-0 mt-0">Warranty:
-                            <span class="fw-600">{{ product.warrantyInformation }}</span>
-                        </p>
-                        <p class="f-14 mb-0  mt-0">Weight:
-                            <span class="fw-600">{{ product.weight }} kg</span>
-                        </p>
-                        <p class="f-14 mb-0  mt-0">Shipping:
-                            <span class="fw-600">{{ product.shippingInformation }}</span>
-                        </p>
+        <div class="card cont box-height" style="padding: 20px;border: 1px solid #ddd;">
+            <v-row>
+                <v-col :cols="12" sm="6" md="4" lg="4">
+                    <div class="img-div-large">
+                        <img :src="product.thumbnail" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="detail">
-                <div style="display: grid;">
                     <div>
-                        <span :class="`fw-700 f-15 mb-0 mt-0 badge ${product.category}`">{{ product.category }}</span>
-                        <i class="fa fa-tag float-right fw-600" v-if="product.brand"> 
-                            <span style="color: darkgreen;">
-                                 {{ product.brand }}</span>
-                        </i>
+                        <div class="mt-2 detail-box">
+                            <p class="f-14 mb-0 mt-0">Discount:
+                                <span class="fw-600">{{ product.discountPercentage }}%</span>
+                            </p>
+                            <p class="f-14 mb-0 mt-0">Warranty:
+                                <span class="fw-600">{{ product.warrantyInformation }}</span>
+                            </p>
+                            <p class="f-14 mb-0  mt-0">Weight:
+                                <span class="fw-600">{{ product.weight }} kg</span>
+                            </p>
+                            <p class="f-14 mb-0  mt-0">Shipping:
+                                <span class="fw-600">{{ product.shippingInformation }}</span>
+                            </p>
+                        </div>
                     </div>
-                    <p class="fw-700  mb-0 mt-0 cursor-pointer" style="font-size: 35px;" @click="onViewDetails"
-                        v-tooltip="'View details'">
-                        {{
-                            product.title }}
-                    </p>
-                    <label class="rating mt-1">
-                        <i class="fa fa-star fa-fw"></i>
-                        {{ product.rating }} ({{ product.reviews.length }} reviews)
-                        <span style="color: darkolivegreen;"> {{ product.stock }} left</span>
-                    </label>
-                    <slot name="date"></slot>
-                    <label class="f-20 fw-600 mt-2" style="margin-left: 4px;">${{ product.price }}</label>
-                </div>
-                <div class="mt-2">
-                    <label class="label-head mt-2 f-12">Description</label>
-                    <p class="f-14  mt-0">{{ product.description }}</p>
-                </div>
-            </div>
+                </v-col>
+                <v-col :cols="12" sm="6" md="8" lg="8">
+                    <div class="detail">
+                        <div style="display: grid;">
+                            <div>
+                                <span :class="`fw-700 f-15 mb-0 mt-0 badge ${product.category}`">{{ product.category
+                                    }}</span>
+                                <i class="fa fa-tag float-right fw-600" v-if="product.brand">
+                                    <span style="color: darkgreen;">
+                                        {{ product.brand }}</span>
+                                </i>
+                            </div>
+                            <p class="fw-700  mb-0 mt-0 cursor-pointer" style="font-size: 35px;" @click="onViewDetails"
+                                v-tooltip="'View details'">
+                                {{
+                                    product.title }}
+                            </p>
+                            <label class="rating mt-1">
+                                <i class="fa fa-star fa-fw"></i>
+                                {{ product.rating }} ({{ product.reviews.length }} reviews)
+                                <span style="color: darkolivegreen;"> {{ product.stock }} left</span>
+                            </label>
+                            <slot name="date"></slot>
+                            <label class="f-20 fw-600 mt-2" style="margin-left: 4px;">${{ product.price }}</label>
+                        </div>
+                        <div class="mt-2">
+                            <label class="label-head mt-2 f-12">Description</label>
+                            <p class="f-14  mt-0">{{ product.description }}</p>
+                        </div>
+                    </div>
+                </v-col>
+            </v-row>
         </div>
     </div>
 </template>
@@ -96,7 +99,6 @@ const onRouteBack = () => {
 <style scoped>
 .badge {
     background-color: #273cb0;
-
     color: #fff;
     font-size: 12px;
     padding: 2px 10px;
@@ -154,5 +156,10 @@ const onRouteBack = () => {
 .detail-box span {
     color: black;
     font-weight: 600;
+}
+
+.box-height {
+    overflow-x: auto;
+    max-height: 60vh;
 }
 </style>

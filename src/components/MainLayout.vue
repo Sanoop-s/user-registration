@@ -34,7 +34,7 @@ const onLogout = () => {
         <h2 v-if="loggedUser.role === '0'" style="margin: 0;">User list</h2>
         <h2 v-else style="margin: 0;">User</h2>
       </div>
-      <div>
+      <div class="text-center">
         <i class="fa fa-sign-out f-18" @click="onLogout" style="cursor: pointer;"></i>
         <p style="margin: 0;" class="fw-600 f-16">{{ userName }}</p>
       </div>

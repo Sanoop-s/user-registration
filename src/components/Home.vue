@@ -11,22 +11,16 @@ defineProps({
   msg: String,
 })
 
-const toast = useToast(0);
 const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
 const userList = ref(JSON.parse(localStorage.getItem('users')))
-const userName = loggedUser.f_name + ' ' + (loggedUser.l_name ?? '');
 
 const filteredUsers = computed(() => {
-  console.log(userList)
   return userList.value.filter(user => user.role == "1");
 })
-
-
 
 </script>
 
 <template>
-    
     <div v-if="loggedUser.role === '0'" style="margin-top: 20px;max-height: 400px;overflow-x: auto;"
       class="custom-scroll">
       <UserList :userList="filteredUsers" />
@@ -37,8 +31,6 @@ const filteredUsers = computed(() => {
 </template>
 
 <style scoped>
-
-
 .img-responsive {
   object-fit: contain;
   width: 30px;

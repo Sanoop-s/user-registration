@@ -40,28 +40,36 @@ const onLogin = () => {
 
 <template>
     <div class="container">
-        <div class="form-cont">
-            <div class="cont-box text-center">
-                <form @submit.prevent="onLogin">
-                    <h4 class="heading4 mb-1">Login </h4>
-                    <div class="form-row">
-                        <input type="text" class="form-control" placeholder="Email address" v-model="email" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" class="form-control" placeholder="Password" v-model="password" required>
-                    </div>
-                    <div class="form-row">
-                        <button type="submit">Sign in</button>
-                    </div>
-                    <div class="form-row text-center " style="text-align: center;">
-                        <span class="f-14">Don't have an account? <a @click="onRoute">Create new</a> </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="img-cont">
-            <img :src=LoginImg alt="">
-        </div>
+        <v-row>
+            <v-col :cols="12" sm="6" md="5" lg="5">
+                <div class="form-cont d-flex justify-center align-center text-center">
+                    <!-- <div class="cont-box text-center"> -->
+                        <form @submit.prevent="onLogin">
+                            <h4 class="heading4 mb-1">Login </h4>
+                            <div class="form-row">
+                                <input type="text" class="form-control" placeholder="Email address" v-model="email"
+                                    required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" class="form-control" placeholder="Password" v-model="password"
+                                    required>
+                            </div>
+                            <div class="form-row">
+                                <button type="submit" class="btn-primary">Sign in</button>
+                            </div>
+                            <div class=" text-center " style="text-align: center;">
+                                <span class="f-14 cursor-pointer">Don't have an account? <a @click="onRoute">Create new</a> </span>
+                            </div>
+                        </form>
+                    <!-- </div> -->
+                </div>
+            </v-col>
+            <v-col :cols="12" sm="6" md="7" lg="7">
+                <div class="img-cont">
+                    <img :src=LoginImg alt="">
+                </div>
+            </v-col>
+        </v-row>
     </div>
 </template>
 

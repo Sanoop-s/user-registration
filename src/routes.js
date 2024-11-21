@@ -4,6 +4,7 @@ import SignUp from './components/auth/SignUp.vue';
 import Home from './components/Home.vue';
 import ProductView from './components/ProductView.vue';
 import MainLayout from './components/MainLayout.vue';
+import AddProduct from './components/AddProduct.vue';
 
 const routes = [
     { path: "/", component: Login, name: "login" },
@@ -14,6 +15,8 @@ const routes = [
         children: [
             { path: "/home", component: Home, name: "home" },
             { path: "/view-product/:id", component: ProductView, name: "product" },
+            { path: "/add-product", component: AddProduct, name: "addProduct" },
+
         ]
     }
 ]
